@@ -2,6 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const aws = require('aws-sdk')
 const fs = require('fs')
+const path = require('path')
 
 try {
   const bucket = core.getInput('bucket')
@@ -21,11 +22,19 @@ try {
   });
 
   const s3 = new aws.S3({apiVersion: '2006-03-01'})
-  s3.getObject(params, function (response) {
-    fs.writeFile('./prod.yml', response.Body, function () {
-      core.setOutput('message', response.Body)
-    });
-  })
+
+  const tempFileName = path.join('/tmp', 'prod.yml');
+  const tempFile = fs.createWriteStream(tempFileName);
+
+  s3.getObject(params).createReadStream().pipe(tempFile);
+  
+  // s3.getObject(params, function (response) {
+  //   fs.writeFile('./prod.yml', response.Body, function () {
+  //     console.log('H')
+  //     core.setOutput('message', response.Body)
+  //   })
+  // })
+
 
 
 } catch (error) {

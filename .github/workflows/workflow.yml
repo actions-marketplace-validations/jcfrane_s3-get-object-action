@@ -18,4 +18,4 @@ jobs:
           ls -la
           cat prod.yml
       - name: Get s3 details
-        run: echo "The time was ${{ steps.s3.outputs.message }}"
+        run: echo "Contents ${{ steps.s3.outputs.message }}"
