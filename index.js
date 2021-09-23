@@ -10,7 +10,7 @@ try {
   const secretKey = core.getInput('aws-secret-key')
 
   const params = {
-    Bucket: buckets,
+    Bucket: bucket,
     Key: 'build_artifacts/prod.yml'
   }
 

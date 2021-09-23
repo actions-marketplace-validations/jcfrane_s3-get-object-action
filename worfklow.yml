@@ -9,9 +9,10 @@ jobs:
         id: s3
         uses: jcfrane/s3-get-object-action@v1.0
         with:
-          bucket: ${{ secrets.BUCKET }}
           region: ap-southeast-1
+          bucket: ${{ secrets.BUCKET }}
           aws-access-key: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
+
       - name: Get s3 details
         run: echo "The time was ${{ steps.s3.outputs.message }}"

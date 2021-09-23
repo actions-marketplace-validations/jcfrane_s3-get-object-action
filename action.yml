@@ -10,12 +10,14 @@ inputs:
   aws-access-key:
     description: 'AWS Access Key'
     required: true
-  aws-secret-key:
+  aws-secret-key: 
     description: 'AWS Secret Key'
     required: true
+
 outputs:
   message: 
     description: 'Ouput message'
+
 runs:
   using: 'node12'
   main: 'index.js'
