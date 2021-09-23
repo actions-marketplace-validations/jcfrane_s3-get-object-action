@@ -1,5 +1,11 @@
 name: 'S3 Get Object'
 description: 'Get object from AWS S3'
+author: 'JC Frane <jcfrane.com>'
+
+branding:
+  icon: "arrow-down"
+  color: "blue"
+
 inputs:
   bucket:
     description: 'S3 Bucket'
