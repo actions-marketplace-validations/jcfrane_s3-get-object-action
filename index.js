@@ -15,18 +15,18 @@ try {
     Key: 'build_artifacts/prod.yml'
   }
 
-  aws.config.update({ 
+  aws.config({ 
     region,
     accessKeyId: accessKey,
-    secretKey: secretKey 
+    secretAccessKey: secretKey 
   });
 
   const s3 = new aws.S3({apiVersion: '2006-03-01'})
 
-  const tempFileName = path.join('/tmp', 'prod.yml');
-  const tempFile = fs.createWriteStream(tempFileName);
-
-  s3.getObject(params).createReadStream().pipe(tempFile);
+  const tempFileName = path.join('./', 'prod.yml')
+  const tempFile = fs.createWriteStream(tempFileName)
+  s3.getObject(params).createReadStream().pipe(tempFile)
+  core.setOutput('message', 'Finished downloading')
   
   // s3.getObject(params, function (response) {
   //   fs.writeFile('./prod.yml', response.Body, function () {
