@@ -1,4 +1,4 @@
-name: s3-get-object
+name: 'S3 Get Object'
 description: 'Get object from AWS S3'
 inputs:
   bucket:
