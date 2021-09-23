@@ -4,8 +4,14 @@ inputs:
   bucket:
     description: 'S3 Bucket'
     required: true
+  region:
+    description: 'S3 Region'
+    required: true
   aws-access-key:
     description: 'AWS Access Key'
+    required: true
+  aws-secret-key:
+    description: 'AWS Secret Key'
     required: true
 outputs:
   message: 
