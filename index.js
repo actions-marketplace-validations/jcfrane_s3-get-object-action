@@ -15,7 +15,7 @@ try {
     Key: 'build_artifacts/prod.yml'
   }
 
-  aws.config({ 
+  aws.config.update({ 
     region,
     accessKeyId: accessKey,
     secretAccessKey: secretKey 
