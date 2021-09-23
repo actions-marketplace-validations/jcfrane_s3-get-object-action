@@ -14,13 +14,13 @@ try {
     Key: 'build_artifacts/prod.yml'
   }
 
-  AWS.config.update({ 
+  aws.config.update({ 
     region,
     accessKeyId: accessKey,
     secretKey: secretKey 
   });
 
-  const s3 = new AWS.S3({apiVersion: '2006-03-01'})
+  const s3 = new aws.S3({apiVersion: '2006-03-01'})
   const object = s3.getObject(params)
   fs.writeFileSync('./prod.yml', object);
 
