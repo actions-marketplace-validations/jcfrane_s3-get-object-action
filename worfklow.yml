@@ -7,7 +7,7 @@ jobs:
     steps:
       - name:  Getting S3 Object
         id: s3
-        uses: ./
+        uses: jcfrane/s3-get-object-action@v1.0
         with:
           bucket: 'my-bucket'
       - name: Get s3 details
