@@ -23,7 +23,7 @@ try {
   const s3 = new aws.S3({apiVersion: '2006-03-01'})
   s3.getObject(params, function (response) {
     fs.writeFile('./prod.yml', response.Body, function () {
-      core.setOutput('message', 'Done')
+      core.setOutput('message', response.Body)
     });
   })
 
