@@ -12,7 +12,7 @@ try {
 
   const params = {
     Bucket: bucket,
-    Key: 'build_artifacts/prod.yml'
+    Key: 'build-artifacts/prod.yml'
   }
 
   aws.config.update({ 
