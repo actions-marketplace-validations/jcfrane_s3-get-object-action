@@ -1,0 +1,12 @@
+name: s3-get-object
+description: 'Get object from AWS S3'
+inputs:
+  bucket:
+    description: 'The S3 Bucket'
+    required: true
+outputs:
+  message: 
+    description: 'Ouput message'
+runs:
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    name: Gets S3 Object
+    steps:
+      - name:  Getting S3 Object
+        id: s3
+        uses: ./
+        with:
+          bucket: 'my-bucket'
+      - name: Get s3 details
+        run: echo "The time was ${{ steps.s3.outputs.message }}"
