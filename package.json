@@ -6,12 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcfrane/s3-get-object-action.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcfrane/s3-get-object-action/issues"
+  },
+  "homepage": "https://github.com/jcfrane/s3-get-object-action#readme",
   "dependencies": {
     "@actions/core": "^1.5.0",
-    "@actions/github": "^5.0.0",
     "aws-sdk": "^2.993.0"
   }
 }
