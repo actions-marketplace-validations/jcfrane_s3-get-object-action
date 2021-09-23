@@ -21,8 +21,8 @@ try {
   });
 
   const s3 = new aws.S3({apiVersion: '2006-03-01'})
-  const object = s3.getObject(params)
-  fs.writeFileSync('./prod.yml', object);
+  const data = s3.getObject(params)
+  fs.writeFile('./prod.yml', data.body);
 
   core.setOutput('message', 'Done')
 
