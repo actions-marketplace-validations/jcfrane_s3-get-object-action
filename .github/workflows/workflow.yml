@@ -3,7 +3,7 @@ on: [push]
 jobs:
   main:
     runs-on: ubuntu-latest
-    name: Gets S3 Object
+    name: Get S3 Object
     steps:
       - name:  Getting S3 Object
         id: s3
@@ -15,9 +15,5 @@ jobs:
           aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
           object-key: build-artifacts/prod.yml
           filename: prod.yml
-      - name : Check file
-        run: |
-          ls -la
-          cat prod.yml
-      - name: Get s3 details
-        run: echo "Contents ${{ steps.s3.outputs.message }}"
+      - name: Confirming Download
+        run: ls -la
