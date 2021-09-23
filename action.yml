@@ -13,6 +13,12 @@ inputs:
   aws-secret-key: 
     description: 'AWS Secret Key'
     required: true
+  object-key: 
+    description: 'S3 Object Key'
+    required: true
+  filename: 
+    description: 'Filename of the file when gets saved'
+    required: true
 
 outputs:
   message: 

@@ -9,10 +9,12 @@ try {
   const region = core.getInput('region')
   const accessKey = core.getInput('aws-access-key')
   const secretKey = core.getInput('aws-secret-key')
+  const objectKey = core.getInput('object-key')
+  const filename = core.getInput('filename')
 
   const params = {
     Bucket: bucket,
-    Key: 'build-artifacts/prod.yml'
+    Key: objectKey
   }
 
   aws.config.update({ 
@@ -23,19 +25,10 @@ try {
 
   const s3 = new aws.S3({apiVersion: '2006-03-01'})
 
-  const tempFileName = path.join('./', 'prod.yml')
+  const tempFileName = path.join('./', filename)
   const tempFile = fs.createWriteStream(tempFileName)
   s3.getObject(params).createReadStream().pipe(tempFile)
   core.setOutput('message', 'Finished downloading')
-  
-  // s3.getObject(params, function (response) {
-  //   fs.writeFile('./prod.yml', response.Body, function () {
-  //     console.log('H')
-  //     core.setOutput('message', response.Body)
-  //   })
-  // })
-
-
 
 } catch (error) {
   core.setFailed(error.message)
