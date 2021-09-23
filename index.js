@@ -1,6 +1,6 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
-const aws = require('aws/sdk')
+const aws = require('aws-sdk')
 const fs = require('fs')
 
 try {
